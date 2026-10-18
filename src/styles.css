@@ -1,54 +1,58 @@
 /* ==========================================================================
    Dhanyatha D — Portfolio Design System
-   Modern Premium Dark Theme with Blue / Purple Gradients & Polished Bento UI
+   Medium-dark royal blue cinematic theme
    ========================================================================== */
 
 :root {
-  /* Color Palette */
-  --bg-canvas: #08090d;
-  --bg-canvas-subtle: #0e111a;
-  --bg-card: rgba(17, 21, 33, 0.7);
-  --bg-card-hover: rgba(24, 30, 48, 0.85);
-  --bg-card-solid: #121624;
-  --bg-surface-elevated: #161c2e;
-  --bg-glass: rgba(10, 12, 19, 0.8);
-  --bg-glass-input: rgba(14, 18, 30, 0.8);
+  --scroll-parallax: 0px;
+
+  /* Color Palette — royal navy base */
+  --bg-canvas: #0a0e1a;
+  --bg-canvas-subtle: #0f1526;
+  --bg-card: rgba(14, 22, 42, 0.72);
+  --bg-card-hover: rgba(18, 30, 58, 0.88);
+  --bg-card-solid: #101a30;
+  --bg-surface-elevated: #152238;
+  --bg-glass: rgba(8, 12, 24, 0.82);
+  --bg-glass-input: rgba(12, 20, 38, 0.85);
 
   /* Borders & Glows */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-card: rgba(255, 255, 255, 0.1);
-  --border-card-hover: rgba(147, 130, 255, 0.35);
-  --border-focus: rgba(96, 165, 250, 0.6);
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-card: rgba(255, 255, 255, 0.09);
+  --border-card-hover: rgba(59, 130, 246, 0.42);
+  --border-focus: rgba(96, 165, 250, 0.65);
 
   /* Foregrounds & Typography */
-  --text-white: #ffffff;
-  --text-1: #f1f5f9;
+  --text-white: #f8fafc;
+  --text-1: #e8eef8;
   --text-2: #94a3b8;
   --text-3: #64748b;
-  --text-muted: #475569;
+  --text-muted: #4b5568;
 
-  /* Accents */
-  --cyan: #38bdf8;
-  --blue: #60a5fa;
-  --indigo: #818cf8;
-  --purple: #a855f7;
-  --violet: #c084fc;
+  /* Accents — royal blue family */
+  --cyan: #5b9fd4;
+  --blue: #3b82f6;
+  --indigo: #2563eb;
+  --purple: #4f6fd8;
+  --violet: #6b8cff;
   --emerald: #34d399;
   --amber: #fbbf24;
   --rose: #f43f5e;
+  --royal: #1e40af;
+  --royal-light: #60a5fa;
 
   /* Gradients */
-  --grad-accent: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
-  --grad-blue-purple: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%);
-  --grad-cyan-blue: linear-gradient(135deg, #38bdf8 0%, #3b82f6 100%);
-  --grad-purple-pink: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
-  --grad-text: linear-gradient(135deg, #ffffff 20%, #e2e8f0 60%, #94a3b8 100%);
-  --grad-card-border: linear-gradient(135deg, rgba(56, 189, 248, 0.3) 0%, rgba(129, 140, 248, 0.1) 50%, rgba(192, 132, 252, 0.3) 100%);
+  --grad-accent: linear-gradient(135deg, #2563eb 0%, #3b82f6 45%, #5b9fd4 100%);
+  --grad-blue-purple: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
+  --grad-cyan-blue: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  --grad-purple-pink: linear-gradient(135deg, #2563eb 0%, #5b9fd4 100%);
+  --grad-text: linear-gradient(135deg, #ffffff 15%, #dbeafe 55%, #94a3b8 100%);
+  --grad-card-border: linear-gradient(135deg, rgba(37, 99, 235, 0.35) 0%, rgba(59, 130, 246, 0.12) 50%, rgba(91, 159, 212, 0.28) 100%);
 
   /* Shadows */
-  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(255, 255, 255, 0.05);
-  --shadow-hover: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 30px -5px rgba(129, 140, 248, 0.25);
-  --shadow-btn: 0 4px 20px -2px rgba(129, 140, 248, 0.4);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.55), 0 0 1px 1px rgba(255, 255, 255, 0.04);
+  --shadow-hover: 0 22px 44px -16px rgba(0, 0, 0, 0.65), 0 0 28px -6px rgba(37, 99, 235, 0.28);
+  --shadow-btn: 0 4px 22px -2px rgba(37, 99, 235, 0.45);
 
   /* Typography Stacks */
   --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
@@ -90,8 +94,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.18), transparent 80%),
-    radial-gradient(ellipse 60% 40% at 100% 40%, rgba(56, 189, 248, 0.12), transparent 70%);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37, 99, 235, 0.14), transparent 80%),
+    radial-gradient(ellipse 55% 38% at 100% 42%, rgba(30, 64, 175, 0.12), transparent 72%);
   background-attachment: fixed;
 }
 
@@ -178,10 +182,10 @@ a {
 .bg-ambient--top {
   top: -120px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(calc(var(--scroll-parallax) * -0.65));
   width: 750px;
   height: 450px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(168, 85, 247, 0.2) 60%, transparent 80%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.22) 0%, rgba(30, 58, 138, 0.14) 60%, transparent 80%);
 }
 
 .bg-ambient--right {
@@ -189,7 +193,8 @@ a {
   right: -150px;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, rgba(129, 140, 248, 0.1) 70%, transparent 80%);
+  transform: translateY(calc(var(--scroll-parallax) * 0.45));
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.16) 0%, rgba(30, 64, 175, 0.08) 70%, transparent 80%);
 }
 
 .bg-grid {
@@ -631,6 +636,12 @@ a {
   z-index: 1;
   padding-block: clamp(3.5rem, 8vw, 6.5rem);
   border-top: 1px solid var(--border-subtle);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(15, 23, 42, 0.35) 50%,
+    transparent 100%
+  );
 }
 
 .section__head {
@@ -1006,6 +1017,11 @@ a {
   background: var(--grad-accent);
   opacity: 0;
   transition: opacity 0.3s ease;
+}
+
+.tilt-card:hover .proj-card {
+  border-color: var(--border-card-hover);
+  box-shadow: var(--shadow-hover);
 }
 
 .proj-card:hover {
@@ -1734,13 +1750,27 @@ a {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero-stagger {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .tilt-card__inner {
+    transform: none !important;
+  }
 }
 
 /* ==========================================================================
-   Vanta.js 3D Background (Cinematic FOG Ambient Shader)
+   Three.js particle background
    ========================================================================== */
 
-.vanta-bg-canvas {
+.scene-bg-canvas {
   position: fixed;
   inset: 0;
   width: 100vw;
@@ -1748,29 +1778,165 @@ a {
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
-.vanta-bg-canvas canvas {
+.scene-bg-canvas canvas {
   width: 100% !important;
   height: 100% !important;
   display: block;
   pointer-events: none;
 }
 
-/* Subtle contrast vignette ensuring AAA typography readability */
-.vanta-contrast-vignette {
+.scene-bg-vignette {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
   pointer-events: none;
   background: radial-gradient(
-    ellipse 95% 85% at 50% 20%,
-    rgba(8, 9, 13, 0.12) 0%,
-    rgba(8, 9, 13, 0.60) 65%,
-    rgba(8, 9, 13, 0.92) 100%
+    ellipse 95% 85% at 50% 18%,
+    rgba(10, 14, 26, 0.08) 0%,
+    rgba(10, 14, 26, 0.55) 62%,
+    rgba(10, 14, 26, 0.94) 100%
   );
+}
+
+/* ==========================================================================
+   Typewriter, hero entrance, scroll reveals, 3D tilt cards
+   ========================================================================== */
+
+.typewriter {
+  display: inline;
+}
+
+.typewriter__text--started {
+  animation: hero-title-glow 1.2s ease-out 1;
+}
+
+@keyframes hero-title-glow {
+  from { text-shadow: 0 0 0 transparent; }
+  to { text-shadow: 0 0 40px rgba(37, 99, 235, 0.15); }
+}
+
+.typewriter__cursor {
+  display: inline-block;
+  width: 0.08em;
+  height: 0.92em;
+  margin-left: 0.06em;
+  vertical-align: -0.08em;
+  background: var(--royal-light);
+  animation: cursor-blink 0.95s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  50% { opacity: 0; }
+}
+
+.hero-center__content--enter {
+  animation: hero-shell-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes hero-shell-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-stagger {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: hero-stagger-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(2400ms + var(--hero-stagger, 0) * 120ms);
+}
+
+@keyframes hero-stagger-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal--inline {
+  display: inline-block;
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-grid__item {
+  height: 100%;
+}
+
+.tilt-card {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  height: 100%;
+  perspective: 900px;
+}
+
+.tilt-card__inner {
+  height: 100%;
+  transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateZ(0);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.tilt-card__shine {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-xl);
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    circle at var(--pointer-x) var(--pointer-y),
+    rgba(96, 165, 250, 0.14) 0%,
+    transparent 55%
+  );
+  transition: opacity 0.35s ease;
+  z-index: 0;
+}
+
+.tilt-card {
+  position: relative;
+}
+
+.tilt-card:hover .tilt-card__shine {
+  opacity: 1;
+}
+
+.tilt-card__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.tilt-card .proj-card {
+  height: 100%;
+  transform: translateZ(0);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tilt-card:hover .proj-card {
+  transform: translateY(-6px) translateZ(12px);
 }
 
 /* ==========================================================================
@@ -1808,9 +1974,9 @@ a {
 
 .filter-btn.is-active {
   color: #fff;
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.2) 0%, rgba(168, 85, 247, 0.25) 100%);
-  border-color: rgba(168, 85, 247, 0.5);
-  box-shadow: 0 0 16px rgba(168, 85, 247, 0.25);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.22) 0%, rgba(59, 130, 246, 0.28) 100%);
+  border-color: rgba(59, 130, 246, 0.55);
+  box-shadow: 0 0 16px rgba(37, 99, 235, 0.28);
 }
 
 .proj-badge--purple {

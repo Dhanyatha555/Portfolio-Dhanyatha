@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import {
   profile,
   education,
@@ -9,14 +9,39 @@ import {
   achievements,
   activities,
 } from './data.js'
-import VantaBackground from './VantaBackground.jsx'
+import TypewriterText from './components/TypewriterText.jsx'
+import ScrollReveal from './components/ScrollReveal.jsx'
+import TiltProjectCard from './components/TiltProjectCard.jsx'
+import { useInViewOnce } from './hooks/useInViewOnce.js'
+
+const ParticleBackground = lazy(() => import('./components/ParticleBackground.jsx'))
+
+const HERO_HEADLINE = 'Driven by Why, What If, and How.'
 
 function SectionHead({ eyebrow, title, intro, id }) {
+  const [headRef, inView] = useInViewOnce()
+
   return (
-    <header className="section__head">
-      {eyebrow && <span className="section__eyebrow">{eyebrow}</span>}
-      <h2 id={`${id}-title`} className="section__title">{title}</h2>
-      {intro && <p className="section__intro">{intro}</p>}
+    <header ref={headRef} className="section__head">
+      {eyebrow && (
+        <ScrollReveal as="span" className="section__eyebrow reveal--inline" delay={0}>
+          {eyebrow}
+        </ScrollReveal>
+      )}
+      <h2 id={`${id}-title`} className="section__title">
+        <TypewriterText
+          as="span"
+          text={title}
+          active={inView}
+          speed={52}
+          showCursor={inView}
+        />
+      </h2>
+      {intro && (
+        <ScrollReveal as="p" className="section__intro" delay={120}>
+          {intro}
+        </ScrollReveal>
+      )}
     </header>
   )
 }
@@ -118,16 +143,23 @@ function Header() {
 function Hero() {
   return (
     <section id="top" className="hero-center wrap">
-      <div className="hero-center__content">
+      <div className="hero-center__content hero-center__content--enter">
         <h1 className="hero-center__title">
-          Driven by Why, What If, and How.
+          <TypewriterText
+            as="span"
+            text={HERO_HEADLINE}
+            active
+            speed={55}
+            startDelay={280}
+            showCursor
+          />
         </h1>
 
-        <p className="hero-center__lede">
+        <p className="hero-center__lede hero-stagger" style={{ '--hero-stagger': 0 }}>
           I’m Dhanyatha, a Computer Science student exploring ideas, experimenting with technology and building software that solves real problems.
         </p>
 
-        <div className="hero-center__highlights">
+        <div className="hero-center__highlights hero-stagger" style={{ '--hero-stagger': 1 }}>
           <div className="highlight-pill">
             <span className="highlight-dot highlight-dot--emerald" />
             <span>CGPA: <strong>8.7 / 10</strong></span>
@@ -146,7 +178,7 @@ function Hero() {
           </div>
         </div>
 
-        <div className="hero-center__actions">
+        <div className="hero-center__actions hero-stagger" style={{ '--hero-stagger': 2 }}>
           <a className="btn btn--gradient btn--lg" href="#projects">
             <span>Explore Projects</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
@@ -173,7 +205,7 @@ function Hero() {
           </a>
         </div>
 
-        <div className="hero-center__socials">
+        <div className="hero-center__socials hero-stagger" style={{ '--hero-stagger': 3 }}>
           <ul className="social-links social-links--centered" aria-label="Social Profiles">
             <li>
               <a href={profile.github} target="_blank" rel="noopener noreferrer" className="social-link" title="GitHub Profile">
@@ -219,7 +251,7 @@ function About() {
 
       <div className="bento-grid">
         {/* Narrative Card */}
-        <div className="bento-card bento-card--featured">
+        <ScrollReveal className="bento-card bento-card--featured" delay={0}>
           <div className="bento-card__badge">Focus & Philosophy</div>
           <h3 className="bento-card__title">Applied AI & Resilient Systems</h3>
           <div className="prose">
@@ -233,10 +265,10 @@ function About() {
               My portfolio also spans enterprise backend engineering with <strong>EcoSphere</strong> (Django & DRF APIs for ESG tracking and gamification), embedded systems for <strong>Smart Water Leakage Detection</strong> (ESP8266 sensor telemetry), and high-speed 3D WebGL experiences like the <strong>PhaseJump Cyberpunk Endless Runner</strong> built with Three.js.
             </p>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Education & Academic Excellence */}
-        <div className="bento-card">
+        <ScrollReveal className="bento-card" delay={90}>
           <div className="bento-card__badge">Academics</div>
           <h3 className="bento-card__title">Education</h3>
           <div className="edu-block">
@@ -249,10 +281,10 @@ function About() {
               <span className="cgpa-val">{education.cgpa}</span>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Core Principles */}
-        <div className="bento-card">
+        <ScrollReveal className="bento-card" delay={180}>
           <div className="bento-card__badge">Core Focus</div>
           <h3 className="bento-card__title">Technical Pillars</h3>
           <ul className="pillar-list">
@@ -278,7 +310,7 @@ function About() {
               </div>
             </li>
           </ul>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )
@@ -295,8 +327,8 @@ function Experience() {
       />
 
       <div className="experience-timeline">
-        {experience.map((job) => (
-          <div key={job.role + job.org} className="exp-card">
+        {experience.map((job, idx) => (
+          <ScrollReveal key={job.role + job.org} className="exp-card" delay={idx * 90}>
             <div className="exp-card__aside">
               <span className="exp-card__period">{job.period}</span>
               <span className="exp-card__loc">{job.location}</span>
@@ -329,7 +361,7 @@ function Experience() {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
     </section>
@@ -398,7 +430,9 @@ function Projects() {
 
       <div className="project-grid">
         {filteredProjects.map((p, idx) => (
-          <article key={p.id || p.title} className="proj-card">
+          <ScrollReveal key={p.id || p.title} delay={idx * 85} className="project-grid__item">
+          <TiltProjectCard>
+          <article className="proj-card">
             <div className="proj-card__top">
               <div className="proj-card__meta">
                 <span className={`proj-badge proj-badge--${p.tagColor || 'purple'}`}>
@@ -444,6 +478,8 @@ function Projects() {
               </div>
             </div>
           </article>
+          </TiltProjectCard>
+          </ScrollReveal>
         ))}
       </div>
     </section>
@@ -461,8 +497,8 @@ function Skills() {
       />
 
       <div className="skills-grid">
-        {skills.map((s) => (
-          <div key={s.group} className="skill-tile">
+        {skills.map((s, idx) => (
+          <ScrollReveal key={s.group} className="skill-tile" delay={idx * 70}>
             <div className="skill-tile__head">
               <div className="skill-tile__icon-box" aria-hidden="true">
                 {s.icon === 'code' && (
@@ -518,7 +554,7 @@ function Skills() {
                 <span key={item} className="skill-chip">{item}</span>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
     </section>
@@ -624,17 +660,26 @@ function Contact() {
     setTimeout(() => setCopied(false), 2400)
   }
 
+  const [contactRef, contactInView] = useInViewOnce()
+
   return (
     <section id="contact" className="contact-section" aria-labelledby="contact-title">
       <div className="wrap contact-container">
-        <div className="contact-info">
-          <span className="section__eyebrow">GET IN TOUCH</span>
+        <div className="contact-info" ref={contactRef}>
+          <ScrollReveal as="span" className="section__eyebrow reveal--inline">
+            GET IN TOUCH
+          </ScrollReveal>
           <h2 id="contact-title" className="contact-title">
-            Let’s build something extraordinary together.
+            <TypewriterText
+              as="span"
+              text="Let’s build something extraordinary together."
+              active={contactInView}
+              speed={50}
+            />
           </h2>
-          <p className="contact-lede">
+          <ScrollReveal as="p" className="contact-lede" delay={100}>
             I’m actively seeking internships and software engineering opportunities where I can contribute to AI systems, RAG pipelines, or full-stack web applications. Feel free to reach out directly!
-          </p>
+          </ScrollReveal>
 
           <div className="contact-cards">
             {/* Email Card */}
@@ -771,10 +816,26 @@ function Contact() {
 }
 
 export default function App() {
+  useEffect(() => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) return undefined
+
+    const onScroll = () => {
+      document.documentElement.style.setProperty(
+        '--scroll-parallax',
+        `${window.scrollY * 0.035}px`
+      )
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <div className="app-shell">
-      {/* 3D Interactive WebGL Vanta Background */}
-      <VantaBackground />
+      <Suspense fallback={null}>
+        <ParticleBackground />
+      </Suspense>
 
       {/* Ambient background glows */}
       <div className="bg-ambient bg-ambient--top" aria-hidden="true" />
