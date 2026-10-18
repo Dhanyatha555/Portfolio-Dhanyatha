@@ -1,92 +1,84 @@
-# Dhanyatha D: Developer Portfolio
+# Dhanyatha D — Personal Portfolio
 
-A responsive, single-page portfolio built with **React 18 + Vite 5**. It has no backend, database, authentication or paid APIs. Everything is static and deploys for free.
+A personal portfolio showcasing my projects, experience, technical skills, and achievements as a Computer Science Engineering student at Panimalar Engineering College.
 
-Sections: Hero (with an interactive leak-detector demo), About, Experience, Projects, Skills, Achievements and activities, Contact.
+Built to document my journey in software development, explore new technologies, and share the things I create.
 
-## 1. Setup
+## 🌐 Live Portfolio
 
-You need [Node.js](https://nodejs.org) 18 or newer (check with `node -v`).
+**Website:** https://portfolio-dhanyatha.vercel.app/
 
-```bash
-unzip dhanyatha-portfolio.zip
-cd dhanyatha-portfolio
-npm install
-```
+## ✨ Features
 
-## 2. Run locally
+- **About Me** — My background, interests, and engineering journey.
+- **Experience** — Internships and professional experience.
+- **Projects** — Selected projects, technical implementations, and experiments.
+- **Skills** — Programming languages, frameworks, and tools I work with.
+- **Achievements** — Certifications, accomplishments, and hackathon experiences.
+- **Contact** — Ways to connect with me professionally.
+- **Interactive Visuals** — Animated backgrounds and subtle visual effects.
 
-```bash
-npm run dev
-```
+## 🛠️ Tech Stack
 
-Open the address printed in the terminal (usually http://localhost:5173). The page reloads as you edit files.
+- **Frontend:** React
+- **Build Tool:** Vite
+- **Visual Effects:** Vanta.js
+- **Styling:** CSS
+- **Deployment:** Vercel
 
-## 3. Build for production
+## 🚀 Getting Started
 
-```bash
-npm run build      # creates the optimized site in dist/
-npm run preview    # serves dist/ locally so you can check it
-```
+### Prerequisites
 
-## 4. Edit your content
+- [Node.js](https://nodejs.org/)
+- npm (included with Node.js)
 
-All text lives in **`src/data.js`**: contact details, experience, projects, skills and achievements. Change it there and the page updates.
+### Installation
 
-- Resume file: replace `public/Resume_Dhanyatha_D.pdf` (keep the same name, or update `resume` in `src/data.js`).
-- Project links: the "See my GitHub" links point to your GitHub profile. To link a specific repository, add a `link` field to a project in `src/data.js` and use it in `src/App.jsx` (`Projects` component).
-- Colors: the variables at the top of `src/styles.css`.
-- Fonts load from Google Fonts (see `index.html`). If they cannot load, the page falls back to system fonts.
+1. Clone the repository:
 
-## 5. Upload to GitHub
+   ```bash
+   git clone <your-repository-url>
+   ```
 
-1. Create an empty repository on https://github.com/new (for example `portfolio`). Do not add a README there.
-2. In the project folder run:
+2. Navigate to the project directory:
 
-```bash
-git init
-git add .
-git commit -m "Initial portfolio"
-git branch -M main
-git remote add origin https://github.com/Dhanyatha555/portfolio.git
-git push -u origin main
-```
+   ```bash
+   cd <your-project-folder>
+   ```
 
-Replace the URL with your own repository URL if the name differs. `node_modules` and `dist` are ignored by `.gitignore`.
+3. Install dependencies:
 
-## 6. Deploy on Vercel (free)
+   ```bash
+   npm install
+   ```
 
-**Option A: from GitHub (recommended)**
+4. Start the development server:
 
-1. Sign in at https://vercel.com with your GitHub account.
-2. Click **Add New, then Project**, and import your portfolio repository.
-3. Vercel detects Vite automatically. Confirm these values:
-   - Framework Preset: **Vite**
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
-4. Click **Deploy**. Every later `git push` redeploys the site.
+   ```bash
+   npm run dev
+   ```
 
-**Option B: Vercel CLI**
+5. Open the local URL displayed in your terminal.
+
+### Build for Production
 
 ```bash
-npm install -g vercel
-vercel          # follow the prompts, accept the detected Vite settings
-vercel --prod   # publish to production
+npm run build
 ```
 
-## Project structure
+To preview the production build locally:
 
-```
-index.html            page shell, meta tags, fonts
-public/               favicon and resume PDF (served as-is)
-src/main.jsx          React entry
-src/App.jsx           page sections
-src/LeakDemo.jsx      interactive hero demo
-src/data.js           all your content
-src/styles.css        design tokens and styles
+```bash
+npm run preview
 ```
 
-## Notes
+## 👩‍💻 About Me
 
-- The contact form opens the visitor's email app with the message filled in (a `mailto:` link), so no server is needed.
-- Animations are turned off for visitors who set "reduce motion" in their system.
+I'm a pre-final-year Computer Science Engineering student interested in software development, problem-solving, AI/ML, and building practical applications. I enjoy exploring how things work, experimenting with new technologies, and turning ideas into working projects.
+
+
+
+---
+
+*Driven by Why, What-if & How.*
