@@ -3,16 +3,17 @@ import { activities, achievements, education, experience, nav, profile, projects
 
 function Reveal({ as: Element = 'div', className = '', delay = 0, children, ...props }) {
   const [ref, setRef] = useState(null)
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     if (!ref) return undefined
     if (!('IntersectionObserver' in window)) {
-      ref.classList.add('is-visible')
+      setIsVisible(true)
       return undefined
     }
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible')
+        setIsVisible(true)
         observer.unobserve(entry.target)
       }
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' })
@@ -20,7 +21,7 @@ function Reveal({ as: Element = 'div', className = '', delay = 0, children, ...p
     return () => observer.disconnect()
   }, [ref])
 
-  return <Element ref={setRef} className={`reveal ${className}`} style={{ '--reveal-delay': `${delay}ms` }} {...props}>{children}</Element>
+  return <Element ref={setRef} className={`reveal${isVisible ? ' is-visible' : ''} ${className}`} style={{ '--reveal-delay': `${delay}ms` }} {...props}>{children}</Element>
 }
 
 function SectionIntro({ id, number, eyebrow, title, intro }) {
